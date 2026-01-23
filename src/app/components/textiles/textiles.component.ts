@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-textiles',
@@ -9,19 +10,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './textiles.component.html',
   styleUrls: ['./textiles.component.css']
 })
-export class TextilesComponent {
-  categories = [
-    {
-      name: 'Calzado',
-      description: 'Contamos con productos de corte y forro para dama y caballero. Todo nuestro material especializado para la industria del calzado.',
-      image: '👞',
-      features: ['Corte y forro', 'Materiales sintéticos y piel', 'Variedad de texturas']
-    },
-    {
-      name: 'Tapicería',
-      description: 'Gran variedad de chenilles, suedes, lonas, sintéticos, viniles, material para exteriores, terciopelos y jacquards.',
-      image: '🛋️',
-      features: ['Personalización de grabados', 'Diferentes colores', 'Recubrimientos especiales']
-    }
-  ];
+export class TextilesComponent implements OnInit {
+  categories: any[] = [];
+  private productService = inject(ProductService);
+
+  ngOnInit() {
+    this.productService.getProductsByCategory('Textiles').subscribe(data => {
+      this.categories = data;
+    });
+  }
 }

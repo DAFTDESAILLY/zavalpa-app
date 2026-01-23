@@ -32,8 +32,12 @@
                         </ul>
                     </div>
 
-                    <a [routerLink]="['/contacto']" [queryParams]="{product: bag.name}"
-                        class="btn btn-primary btn-sm mt-3">Solicitar Cotización</a>
+                    <div class="d-flex gap-2 mt-3">
+                        <a [routerLink]="['/producto', bag.slug]" class="btn btn-outline-primary btn-sm flex-fill">Ver
+                            Detalles</a>
+                        <a [routerLink]="['/contacto']" [queryParams]="{product: bag.name}"
+                            class="btn btn-primary btn-sm flex-fill">Cotizar</a>
+                    </div>
                 </div>
             </div>
             }

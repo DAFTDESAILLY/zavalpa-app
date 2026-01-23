@@ -47,6 +47,10 @@ export const routes: Routes = [
     title: 'Muebles de Oficina - Zavalpa Comercializadora'
   },
   {
+    path: 'producto/:slug',
+    loadComponent: () => import('./components/product-detail/product-detail.component').then(m => m.ProductDetailComponent)
+  },
+  {
     path: 'nosotros',
     component: AboutComponent,
     title: 'Nosotros - Zavalpa Comercializadora'

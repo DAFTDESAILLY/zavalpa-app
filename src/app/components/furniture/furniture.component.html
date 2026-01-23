@@ -10,13 +10,17 @@
         </div>
 
         <div class="furniture-grid">
-            @for (item of furnitureList; track item) {
+            @for (item of furnitureList; track item.id) {
             <div class="furniture-card">
                 <div class="card-icon">🪑</div>
-                <h3 class="card-title">{{ item }}</h3>
-                <p class="card-desc">Soluciones ergonómicas y duraderas.</p>
-                <a [routerLink]="['/contacto']" [queryParams]="{product: item}"
-                    class="btn btn-outline-primary btn-sm mt-3">Cotizar</a>
+                <h3 class="card-title">{{ item.name }}</h3>
+                <p class="card-desc">{{ item.description }}</p>
+                <div class="d-flex gap-2 mt-3 w-100 justify-content-center">
+                    <a [routerLink]="['/producto', item.slug]" class="btn btn-outline-primary btn-sm flex-fill">Ver
+                        Detalles</a>
+                    <a [routerLink]="['/contacto']" [queryParams]="{product: item.name}"
+                        class="btn btn-primary btn-sm flex-fill">Cotizar</a>
+                </div>
             </div>
             }
         </div>

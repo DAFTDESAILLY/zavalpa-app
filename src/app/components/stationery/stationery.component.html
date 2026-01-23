@@ -15,8 +15,11 @@
                 <div class="card-icon">{{ item.icon }}</div>
                 <h3 class="card-title">{{ item.name }}</h3>
                 <p class="card-desc">{{ item.description }}</p>
-                <a [routerLink]="['/contacto']" [queryParams]="{product: item.name}"
-                    class="btn btn-outline-primary btn-sm mt-3">Cotizar</a>
+                <div class="d-flex gap-2 mt-3 w-100 justify-content-center">
+                    <a [routerLink]="['/producto', item.slug]" class="btn btn-outline-primary btn-sm">Ver Detalles</a>
+                    <a [routerLink]="['/contacto']" [queryParams]="{product: item.name}"
+                        class="btn btn-primary btn-sm">Cotizar</a>
+                </div>
             </div>
             }
         </div>

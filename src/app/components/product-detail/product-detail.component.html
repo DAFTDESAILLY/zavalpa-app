@@ -1,0 +1,71 @@
+<div class="product-detail-container" *ngIf="!isLoading && product; else loadingOrError">
+
+    <div class="breadcrumb">
+        <a (click)="goBack()" class="back-link">← Volver</a>
+        <span class="separator">/</span>
+        <span class="category">{{ product.category }}</span>
+        <span class="separator">/</span>
+        <span class="current">{{ product.name }}</span>
+    </div>
+
+    <div class="product-content">
+        <!-- Left: Image Section -->
+        <div class="product-image-section">
+            <div class="main-image-wrapper">
+                <img *ngIf="product.images && product.images.length > 0; else iconFallback" [src]="product.images[0]"
+                    [alt]="product.name" class="main-image">
+
+                <ng-template #iconFallback>
+                    <div class="icon-placeholder">
+                        <span class="large-icon">{{ product.icon }}</span>
+                    </div>
+                </ng-template>
+            </div>
+
+            <!-- Optional: Thumbnail Gallery if more than 1 image -->
+            <div class="image-gallery" *ngIf="product.images && product.images.length > 1">
+                <div *ngFor="let img of product.images" class="thumb">
+                    <img [src]="img" [alt]="product.name">
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Info Section -->
+        <div class="product-info-section">
+            <h1 class="product-title">{{ product.name }}</h1>
+            <div class="product-category-tag">{{ product.category }}</div>
+
+            <p class="product-description">{{ product.description }}</p>
+
+            <div class="product-features" *ngIf="product.features && product.features.length > 0">
+                <h3>Características</h3>
+                <ul>
+                    <li *ngFor="let feature of product.features">{{ feature }}</li>
+                </ul>
+            </div>
+
+            <div class="product-dimensions" *ngIf="product.dimensions">
+                <h3>Dimensiones</h3>
+                <p>{{ product.dimensions }}</p>
+            </div>
+
+            <div class="action-buttons">
+                <a [routerLink]="getQuoteLink(product)" [queryParams]="getQuoteParams(product)"
+                    class="btn btn-primary cotizar-btn">
+                    Cotizar este producto
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingOrError>
+    <div class="loading-container" *ngIf="isLoading">
+        <p>Cargando producto...</p>
+    </div>
+    <div class="error-container" *ngIf="!isLoading && !product">
+        <h2>Producto no encontrado</h2>
+        <p>Lo sentimos, el producto que buscas no existe o ha sido movido.</p>
+        <a routerLink="/productos" class="btn btn-secondary">Ver todos los productos</a>
+    </div>
+</ng-template>

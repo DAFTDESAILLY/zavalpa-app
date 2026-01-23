@@ -16,8 +16,12 @@
                 <h3 class="frame-model">{{ frame.model }}</h3>
                 <span class="frame-type">{{ frame.type }}</span>
                 <p class="frame-desc">{{ frame.description }}</p>
-                <a [routerLink]="['/contacto']" [queryParams]="{product: frame.model + ' (' + frame.type + ')'}"
-                    class="btn btn-outline-primary btn-sm mt-3">Ver Disponibilidad</a>
+                <div class="d-flex gap-2 mt-3 w-100 justify-content-center">
+                    <a [routerLink]="['/producto', frame.slug]" class="btn btn-outline-primary btn-sm flex-fill">Ver
+                        Detalles</a>
+                    <a [routerLink]="['/contacto']" [queryParams]="{product: frame.model + ' (' + frame.type + ')'}"
+                        class="btn btn-primary btn-sm flex-fill">Ver Disponibilidad</a>
+                </div>
             </div>
             }
         </div>

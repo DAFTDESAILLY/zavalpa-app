@@ -28,8 +28,12 @@
                         </ul>
                     </div>
 
-                    <a [routerLink]="['/contacto']" [queryParams]="{product: category.name}"
-                        class="btn btn-primary mt-4">Cotizar Materiales</a>
+                    <div class="d-flex gap-2 mt-4">
+                        <a [routerLink]="['/producto', category.slug]" class="btn btn-outline-primary flex-fill">Ver
+                            Detalles</a>
+                        <a [routerLink]="['/contacto']" [queryParams]="{product: category.name}"
+                            class="btn btn-primary flex-fill">Cotizar Materiales</a>
+                    </div>
                 </div>
             </div>
             }

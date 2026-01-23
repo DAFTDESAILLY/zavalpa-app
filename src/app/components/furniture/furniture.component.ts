@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-furniture',
@@ -9,10 +10,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './furniture.component.html',
   styleUrls: ['./furniture.component.css']
 })
-export class FurnitureComponent {
-  furnitureList = [
-    'Escritorios', 'Sillas', 'Lockers', 'Archiveros',
-    'Cajas Fuerte', 'Bancos móviles', 'Módulos', 'Gabinetes',
-    'Sala de recepción', 'Libreros', 'Ficheros', 'Mesas de junta'
-  ];
+export class FurnitureComponent implements OnInit {
+  furnitureList: any[] = [];
+  private productService = inject(ProductService);
+
+  ngOnInit() {
+    this.productService.getProductsByCategory('Muebles de Oficina').subscribe(data => {
+      this.furnitureList = data;
+    });
+  }
 }
