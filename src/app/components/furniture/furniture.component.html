@@ -1,0 +1,30 @@
+<section class="furniture-page">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                Muebles para <span class="highlight">Oficina</span>
+            </h1>
+            <p class="page-description">
+                Mobiliario especializado para oficina, biblioteca y archivos. Diseños funcionales y ergonómicos.
+            </p>
+        </div>
+
+        <div class="furniture-grid">
+            @for (item of furnitureList; track item) {
+            <div class="furniture-card">
+                <div class="card-icon">🪑</div>
+                <h3 class="card-title">{{ item }}</h3>
+                <p class="card-desc">Soluciones ergonómicas y duraderas.</p>
+                <a [routerLink]="['/contacto']" [queryParams]="{product: item}"
+                    class="btn btn-outline-primary btn-sm mt-3">Cotizar</a>
+            </div>
+            }
+        </div>
+
+        <div class="cta-section mt-5">
+            <h2>Diseñamos tu espacio de trabajo</h2>
+            <p>Optimiza tu oficina con nuestro mobiliario de alta calidad.</p>
+            <a routerLink="/contacto" class="btn btn-primary btn-lg">Solicitar Catálogo</a>
+        </div>
+    </div>
+</section>

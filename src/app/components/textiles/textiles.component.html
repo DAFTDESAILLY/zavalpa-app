@@ -1,0 +1,45 @@
+<section class="textiles-page">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                Textiles y <span class="highlight">Calzado</span>
+            </h1>
+            <p class="page-description">
+                Tenemos una gran variedad de productos textiles para cubrir cada área del mercado.
+            </p>
+        </div>
+
+        <div class="textiles-grid">
+            @for (category of categories; track category.name) {
+            <div class="category-card">
+                <div class="card-image">
+                    <span class="icon">{{ category.image }}</span>
+                </div>
+                <div class="card-content">
+                    <h2 class="category-title">{{ category.name }}</h2>
+                    <p class="category-desc">{{ category.description }}</p>
+
+                    <div class="features-list">
+                        <h3>Características:</h3>
+                        <ul>
+                            @for (feature of category.features; track feature) {
+                            <li>✓ {{ feature }}</li>
+                            }
+                        </ul>
+                    </div>
+
+                    <a [routerLink]="['/contacto']" [queryParams]="{product: category.name}"
+                        class="btn btn-primary mt-4">Cotizar Materiales</a>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="cta-section mt-5">
+            <h2>¿Buscas materiales específicos?</h2>
+            <p>Nuestros materiales pueden personalizarse con diferentes opciones de grabados, colores y recubrimientos.
+            </p>
+            <a routerLink="/contacto" class="btn btn-secondary btn-lg">Solicitar Muestras</a>
+        </div>
+    </div>
+</section>

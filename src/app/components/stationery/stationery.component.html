@@ -1,0 +1,30 @@
+<section class="stationery-page">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                Artículos de <span class="highlight">Papelería</span>
+            </h1>
+            <p class="page-description">
+                Soluciones integrales en suministros de oficina, escolar y material de embalaje.
+            </p>
+        </div>
+
+        <div class="stationery-grid">
+            @for (item of stationeryItems; track item.name) {
+            <div class="stationery-card">
+                <div class="card-icon">{{ item.icon }}</div>
+                <h3 class="card-title">{{ item.name }}</h3>
+                <p class="card-desc">{{ item.description }}</p>
+                <a [routerLink]="['/contacto']" [queryParams]="{product: item.name}"
+                    class="btn btn-outline-primary btn-sm mt-3">Cotizar</a>
+            </div>
+            }
+        </div>
+
+        <div class="cta-section mt-5">
+            <h2>¿Necesitas surtir tu oficina?</h2>
+            <p>Contamos con precios de mayoreo y distribución a nivel nacional.</p>
+            <a routerLink="/contacto" class="btn btn-primary btn-lg">Solicitar Catálogo Completo</a>
+        </div>
+    </div>
+</section>

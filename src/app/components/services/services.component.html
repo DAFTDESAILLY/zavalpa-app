@@ -1,0 +1,61 @@
+<section class="services-page">
+  <div class="container">
+    <!-- Header -->
+    <div class="page-header">
+      <h1 class="page-title">Nuestros Servicios</h1>
+      <p class="page-description">
+        Soluciones integrales para impulsar tu negocio en el comercio internacional
+      </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+      @for (category of categories; track category.id) {
+        <button 
+          class="category-btn"
+          [class.active]="selectedCategory === category.id"
+          (click)="selectCategory(category.id)">
+          <span class="category-icon">{{ category.icon }}</span>
+          <span class="category-name">{{ category.name }}</span>
+        </button>
+      }
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+      @for (service of filteredServices; track service.id) {
+        <div class="service-card">
+          <div class="service-icon">{{ service.icon }}</div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+          
+          <ul class="service-features">
+            @for (feature of service.features; track feature) {
+              <li class="feature-item">
+                <span class="feature-check">✓</span>
+                <span>{{ feature }}</span>
+              </li>
+            }
+          </ul>
+
+          <div class="service-footer">
+            <span class="service-category">{{ getCategoryName(service.category) }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (filteredServices.length === 0) {
+      <div class="no-services">
+        <p>No hay servicios disponibles en esta categoría</p>
+      </div>
+    }
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h2>¿Listo para comenzar?</h2>
+      <p>Contáctanos y descubre cómo podemos ayudarte a alcanzar tus objetivos</p>
+      <a routerLink="/contacto" class="btn btn-primary btn-lg">Contáctanos →</a>
+    </div>
+  </div>
+</section>

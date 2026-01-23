@@ -1,0 +1,138 @@
+.home-page {
+  padding-top: 120px;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+  background: var(--color-bg-white);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-description {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.business-lines-section {
+  margin-bottom: 6rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 3rem;
+}
+
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .business-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .business-grid {
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns for better card proportions */
+  }
+
+  @media (min-width: 1280px) {
+    .business-grid {
+      grid-template-columns: repeat(5, 1fr);
+      /* 5 columns on very wide screens if desired, or keep 3 */
+    }
+  }
+}
+
+.business-card {
+  padding: 2.5rem;
+  background: var(--color-bg-card);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-light);
+  transition: all var(--transition-base);
+  text-align: center;
+  /* Center content like Feature cards */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.business-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-primary);
+  box-shadow: 0 20px 40px rgba(19, 61, 101, 0.1);
+}
+
+.business-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.business-name {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.business-desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(19, 61, 101, 0.05), rgba(107, 108, 112, 0.1));
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-light);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.cta-section p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: var(--font-size-lg);
+}

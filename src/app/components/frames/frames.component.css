@@ -1,0 +1,114 @@
+.frames-page {
+    padding-top: 120px;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+    background: var(--color-bg-white);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.page-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+}
+
+.highlight {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-description {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.frames-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+    .frames-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .frames-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.frame-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    transition: all var(--transition-base);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frame-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.frame-model {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.frame-type {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.frame-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.cta-section {
+    text-align: center;
+    padding: 4rem;
+    background: var(--color-bg-light);
+    border-radius: var(--border-radius-lg);
+}
+
+.cta-section h2 {
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}

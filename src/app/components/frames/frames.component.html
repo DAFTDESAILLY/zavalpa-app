@@ -1,0 +1,31 @@
+<section class="frames-page">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                Armazones <span class="highlight">Ópticos y de Sol</span>
+            </h1>
+            <p class="page-description">
+                Tenemos armazones ópticos y de sol en diferentes estilos para cada personalidad.
+            </p>
+        </div>
+
+        <div class="frames-grid">
+            @for (frame of frames; track frame.model) {
+            <div class="frame-card">
+                <div class="card-icon">{{ frame.image }}</div>
+                <h3 class="frame-model">{{ frame.model }}</h3>
+                <span class="frame-type">{{ frame.type }}</span>
+                <p class="frame-desc">{{ frame.description }}</p>
+                <a [routerLink]="['/contacto']" [queryParams]="{product: frame.model + ' (' + frame.type + ')'}"
+                    class="btn btn-outline-primary btn-sm mt-3">Ver Disponibilidad</a>
+            </div>
+            }
+        </div>
+
+        <div class="cta-section mt-5">
+            <h2>Encuentra tu estilo perfecto</h2>
+            <p>Contamos con una amplia variedad de marcas y diseños.</p>
+            <a routerLink="/contacto" class="btn btn-primary btn-lg">Contactar Distribuidor</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+<section class="home-page">
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">
+        Soluciones Integrales en<br>
+        <span class="highlight">Comercialización y Logística</span>
+      </h1>
+      <p class="page-description">
+        Conectamos productos, bienes y servicios con soluciones eficientes de importación, exportación y distribución
+        nacional.
+      </p>
+    </div>
+
+    <div class="home-content">
+      <div class="business-lines-section">
+        <h2 class="section-title">Nuestras Líneas de Negocio</h2>
+        <div class="business-grid">
+          @for (line of businessLines; track line.name) {
+          <div class="business-card">
+            <div class="business-icon">{{ line.icon }}</div>
+            <h3 class="business-name">{{ line.name }}</h3>
+            <p class="business-desc">{{ line.description }}</p>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>¿Listo para impulsar tu negocio?</h2>
+        <p>Contáctanos hoy mismo y descubre cómo podemos ayudarte a crecer.</p>
+        <a routerLink="/contacto" class="btn btn-primary btn-lg">
+          Contáctanos →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+<section class="bags-page">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                Bolsas y Carteras de <span class="highlight">Mano</span>
+            </h1>
+            <p class="page-description">
+                Descubre nuestra exclusiva colección de bolsas, carteras y accesorios de alta calidad.
+            </p>
+        </div>
+
+        <div class="bags-grid">
+            @for (bag of bags; track bag.id) {
+            <div class="bag-card">
+                <div class="bag-icon-wrapper">
+                    @if (bag.image) {
+                    <img [src]="bag.image" [alt]="bag.name" class="bag-image">
+                    } @else {
+                    <span class="bag-icon">{{ bag.icon }}</span>
+                    }
+                </div>
+                <div class="bag-content">
+                    <h3 class="bag-name">{{ bag.name }}</h3>
+                    <p class="bag-desc">{{ bag.description }}</p>
+
+                    <div class="bag-features">
+                        <h4>Características:</h4>
+                        <ul>
+                            @for (feature of bag.features; track feature) {
+                            <li>• {{ feature }}</li>
+                            }
+                        </ul>
+                    </div>
+
+                    <a [routerLink]="['/contacto']" [queryParams]="{product: bag.name}"
+                        class="btn btn-primary btn-sm mt-3">Solicitar Cotización</a>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="cta-section mt-4">
+            <h2>¿Buscas un diseño específico?</h2>
+            <p>Podemos conseguir el modelo que necesitas. Contáctanos para pedidos especiales.</p>
+            <a routerLink="/contacto" class="btn btn-secondary btn-lg">Contactar Ventas</a>
+        </div>
+    </div>
+</section>
