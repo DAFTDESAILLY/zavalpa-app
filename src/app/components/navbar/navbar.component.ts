@@ -4,7 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  // Force recompile
+  // Force recompile v2
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive],
@@ -15,7 +15,7 @@ import { AuthService } from '../../services/auth.service';
           <div class="nav-content">
             <!-- Logo -->
             <a routerLink="/" class="logo">
-              <span class="logo-icon">⚡</span>
+              <img src="assets/logo-zavalpa.svg" alt="Zavalpa Logo" class="logo-img" />
               <span class="logo-text">ZAVALPA</span>
             </a>
 
@@ -30,18 +30,9 @@ import { AuthService } from '../../services/auth.service';
               }
             </ul>
 
-            <!-- CTA Button -->
-            <div class="nav-actions desktop-nav">
-              @if (!authService.isAuthenticated()) {
-                <a routerLink="/contacto" class="btn btn-primary">Contáctanos →</a>
-              } @else {
-                <button (click)="authService.logout()" class="btn btn-secondary">Cerrar Sesión</button>
-              }
-            </div>
-
             <!-- Mobile Menu Button -->
-            <button 
-              class="mobile-menu-btn" 
+            <button
+              class="mobile-menu-btn"
               (click)="toggleMobileMenu()"
               [attr.aria-expanded]="mobileMenuOpen()"
               aria-label="Toggle navigation menu">
@@ -65,14 +56,10 @@ import { AuthService } from '../../services/auth.service';
             <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
             @if (authService.isAuthenticated()) {
               <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
-            }
-            <li class="mobile-cta">
-              @if (!authService.isAuthenticated()) {
-                <a routerLink="/contacto" class="btn btn-primary mobile-btn">Contáctanos →</a>
-              } @else {
+              <li class="mobile-cta">
                 <button (click)="authService.logout()" class="btn btn-secondary mobile-btn">Cerrar Sesión</button>
-              }
-            </li>
+              </li>
+            }
           </ul>
         </div>
       }

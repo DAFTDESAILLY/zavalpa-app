@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from '@angular/router'; // reload
 import { HomeComponent } from './components/home/home.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -45,6 +45,18 @@ export const routes: Routes = [
     path: 'productos/muebles-oficina',
     loadComponent: () => import('./components/furniture/furniture.component').then(m => m.FurnitureComponent),
     title: 'Muebles de Oficina - Zavalpa Comercializadora'
+  },
+  {
+    path: 'productos/hogar',
+    loadComponent: () => import('./components/product-category/product-category.component').then(m => m.ProductCategoryComponent),
+    data: { category: 'Hogar', title: 'Productos para el Hogar' },
+    title: 'Hogar - Zavalpa Comercializadora'
+  },
+  {
+    path: 'productos/salud-higiene',
+    loadComponent: () => import('./components/product-category/product-category.component').then(m => m.ProductCategoryComponent),
+    data: { category: 'Salud e Higiene', title: 'Salud e Higiene' },
+    title: 'Salud e Higiene - Zavalpa Comercializadora'
   },
   {
     path: 'producto/:slug',

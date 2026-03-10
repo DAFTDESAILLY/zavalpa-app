@@ -37,10 +37,10 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-.logo-icon {
-  font-size: 1.75rem;
-  color: #fff;
-  /* White icon on dark bg */
+.logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Desktop Navigation */

@@ -12,8 +12,8 @@ export class CompanyService {
     mission: 'Ofrecer a nuestros clientes el mejor servicio y atención, para ampliar nuestro rango de experiencia ante el mercado y así poder realizar cada uno de nuestras acciones empresariales de manera satisfactoria.',
     vision: 'A partir de nuestras experiencias con los clientes, debemos consolidar cada aspecto que requiera el servicio para ofrecer la mejor respuesta ante el requerimiento de nuestro cliente y posicionarnos en el mercado de manera destacada.',
     contact: {
-      email: 'contacto@zavalpa.com',
-      phone: '55-71-55-74-50',
+      email: 'contacto@zavalpa.com.mx',
+      phone: '55 7260 5209',
       address: 'CALLE LATACUNGA 719, COL. LINDAVISTA SUR',
       city: 'GUSTAVO A. MADERO, CIUDAD DE MEXICO',
       state: 'CDMX',

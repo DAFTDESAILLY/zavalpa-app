@@ -28,10 +28,10 @@ export interface Service {
   isActive: boolean;
 }
 
-export type ServiceCategory = 
-  | 'comercio-exterior' 
-  | 'logistica' 
-  | 'consultoria' 
+export type ServiceCategory =
+  | 'comercio-exterior'
+  | 'logistica'
+  | 'consultoria'
   | 'servicios-tecnicos';
 
 // models/product.model.ts
@@ -45,7 +45,7 @@ export interface Product {
   isActive: boolean;
 }
 
-export type ProductCategory = 'bolsas-carteras' | 'papeleria' | 'textiles-calzado' | 'textiles-tapiceria' | 'armazones' | 'muebles-oficina';
+export type ProductCategory = 'bolsas-carteras' | 'papeleria' | 'textiles-calzado' | 'textiles-tapiceria' | 'armazones' | 'muebles-oficina' | 'hogar' | 'salud-higiene';
 
 // models/user.model.ts
 export interface User {

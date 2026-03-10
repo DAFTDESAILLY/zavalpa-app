@@ -16,11 +16,15 @@
         <h2 class="section-title">Nuestras Líneas de Negocio</h2>
         <div class="business-grid">
           @for (line of businessLines; track line.name) {
-          <div class="business-card">
-            <div class="business-icon">{{ line.icon }}</div>
+          <a class="business-card" [routerLink]="line.route">
+            @if (line.image) {
+            <div class="business-image-wrapper">
+              <img [src]="line.image" [alt]="line.name" class="business-image">
+            </div>
+            }
             <h3 class="business-name">{{ line.name }}</h3>
             <p class="business-desc">{{ line.description }}</p>
-          </div>
+          </a>
           }
         </div>
       </div>

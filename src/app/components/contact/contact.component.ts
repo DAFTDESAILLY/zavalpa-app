@@ -1,10 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CompanyService } from '../../services/company.service';
 import { CompanyInfo } from '../../models';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -21,6 +21,9 @@ import { CompanyInfo } from '../../models';
         <div class="contact-content">
           <!-- Contact Information -->
           <div class="contact-info">
+            <div class="contact-logo-wrapper">
+              <img src="assets/logo-zavalpa.svg" alt="Zavalpa Logo" class="contact-logo" />
+            </div>
             <h2>Información de Contacto</h2>
             
             <div class="info-items">
@@ -54,27 +57,22 @@ import { CompanyInfo } from '../../models';
               </div>
             </div>
 
-            <!-- Map Section -->
-            <div class="map-section">
-              <h3>Ubicación</h3>
-              <div class="map-container">
-                <iframe 
-                  [src]="safeMapUrl" 
-                  width="100%" 
-                  height="300" 
-                  style="border:0;" 
-                  allowfullscreen="" 
-                  loading="lazy" 
-                  referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-              </div>
-            </div>
-
             <div class="business-hours">
               <h3>Horario de Atención</h3>
-              <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-              <p>Sábado: 9:00 AM - 2:00 PM</p>
-              <p>Domingo: Cerrado</p>
+              <div class="hours-list">
+                <div class="hours-item">
+                  <span class="hours-day">Lunes a Viernes</span>
+                  <span class="hours-time">9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="hours-item">
+                  <span class="hours-day">Sábado</span>
+                  <span class="hours-time">9:00 AM - 2:00 PM</span>
+                </div>
+                <div class="hours-item closed">
+                  <span class="hours-day">Domingo</span>
+                  <span class="hours-time">Cerrado</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -174,6 +172,17 @@ import { CompanyInfo } from '../../models';
       margin-bottom: 4rem;
     }
 
+    .contact-logo-wrapper {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-logo {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+    }
+
     .page-title {
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 900;
@@ -241,44 +250,44 @@ import { CompanyInfo } from '../../models';
       margin-bottom: 0.25rem;
     }
 
-    .map-section {
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .map-section h3 {
-      font-size: var(--font-size-lg);
-      margin-bottom: 1rem;
-      color: var(--color-primary);
-    }
-
-    .map-container {
-      border-radius: var(--border-radius-md);
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .map-container iframe {
-      display: block;
-      width: 100%;
-      height: 300px;
-    }
-
     .business-hours {
+      margin-top: 2.5rem;
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .business-hours h3 {
       font-size: var(--font-size-lg);
+      font-weight: 700;
       margin-bottom: 1rem;
       color: var(--color-primary);
     }
 
-    .business-hours p {
+    .hours-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .hours-item {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .hours-day {
       color: var(--color-text-secondary);
-      margin-bottom: 0.5rem;
+    }
+
+    .hours-day::after {
+      content: ':';
+    }
+
+    .hours-time {
+      color: var(--color-text-secondary);
+    }
+
+    .hours-item.closed .hours-time {
+      color: var(--color-text-secondary);
     }
 
     .contact-form-wrapper {
@@ -416,7 +425,6 @@ import { CompanyInfo } from '../../models';
 export class ContactComponent implements OnInit {
   companyInfo: CompanyInfo | null = null;
   formSubmitted = false;
-  safeMapUrl: SafeResourceUrl = '';
   private route = inject(ActivatedRoute);
 
   formData = {
@@ -429,19 +437,19 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private companyService: CompanyService,
-    private sanitizer: DomSanitizer
+    private seo: SeoService
   ) { }
 
   ngOnInit() {
+    this.seo.updateSeo({
+      title: 'Contacto',
+      description: 'Contáctanos para cotizaciones, información de productos y servicios. Envíanos un mensaje o escríbenos por WhatsApp.',
+      keywords: 'contacto zavalpa, cotización, whatsapp, email, teléfono, dirección, CDMX',
+      canonicalUrl: '/contacto'
+    });
+
     this.companyService.getCompanyInfo().subscribe(info => {
       this.companyInfo = info;
-      if (info?.contact) {
-        const address = encodeURIComponent(
-          `${info.contact.address}, ${info.contact.city}, ${info.contact.state}, ${info.contact.country} ${info.contact.postalCode || ''}`
-        );
-        const mapUrl = `https://www.google.com/maps?q=${address}&output=embed`;
-        this.safeMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(mapUrl);
-      }
     });
 
     this.route.queryParams.subscribe(params => {
@@ -472,7 +480,7 @@ export class ContactComponent implements OnInit {
   }
 
   sendWhatsApp(productName?: string) {
-    const phoneNumber = '525571557450'; // Derived from 55-71-55-74-50
+    const phoneNumber = '525572605209'; // Derived from 5572605209
     let message = 'Hola, me gustaría solicitar información.';
     if (this.formData.subject) {
       message = `Hola, me interesa: ${this.formData.subject}. ${this.formData.message}`;

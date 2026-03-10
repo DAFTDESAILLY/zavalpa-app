@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CompanyService } from '../../services/company.service';
 import { CompanyInfo } from '../../models';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-about',
@@ -11,62 +12,72 @@ import { CompanyInfo } from '../../models';
   template: `
     <section class="about-page">
       <div class="container">
-        <div class="page-header">
-          <h1 class="page-title">Sobre Nosotros</h1>
-          <p class="page-description">Conoce más sobre nuestra empresa y nuestros valores</p>
+
+        <!-- Hero Photo -->
+        <div class="hero-photo">
+          <img src="assets/nosotros/nuestra empresa.webp" alt="Equipo Zavalpa" class="hero-img" />
         </div>
 
-        <div class="about-content">
-          <div class="about-section">
-            <div class="section-icon">🏢</div>
-            <h2>Nuestra Empresa</h2>
-            <p>{{ companyInfo?.description }}</p>
-          </div>
+        <!-- Nuestra Empresa -->
+        <div class="empresa-section">
+          <h2 class="empresa-title">Nuestra Empresa</h2>
+          <p class="empresa-desc">{{ companyInfo?.description }}</p>
+        </div>
 
-          <div class="values-grid">
-            <div class="value-card">
-              <div class="value-icon">🎯</div>
-              <h3>Misión</h3>
-              <p>{{ companyInfo?.mission }}</p>
+        <!-- Misión y Visión -->
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <img src="assets/nosotros/mision.webp" alt="Misión" class="value-img" />
             </div>
-            <div class="value-card">
-              <div class="value-icon">🚀</div>
-              <h3>Visión</h3>
-              <p>{{ companyInfo?.vision }}</p>
-            </div>
+            <h3>Misión</h3>
+            <p>{{ companyInfo?.mission }}</p>
           </div>
+          <div class="value-card">
+            <div class="value-icon">
+              <img src="assets/nosotros/vision.webp" alt="Visión" class="value-img" />
+            </div>
+            <h3>Visión</h3>
+            <p>{{ companyInfo?.vision }}</p>
+          </div>
+        </div>
 
-          <div class="features-section">
-            <h2>¿Por qué elegirnos?</h2>
-            <div class="features-grid">
-              <div class="feature-card">
-                <div class="feature-icon">🏛️</div>
-                <h4>Empresa 100% Mexicana</h4>
-                <p>Orgullosamente constituidos en la CDMX, dedicados a fortalecer el mercado nacional.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon">🌐</div>
-                <h4>Alcance Integral</h4>
-                <p>Expertos en compraventa, importación, exportación y logística de bienes y servicios.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon">🏭</div>
-                <h4>Diversidad de Industrias</h4>
-                <p>Soluciones especializadas en los sectores textil, calzado, oficina, papelería y tecnología.</p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h4>Atención Personalizada</h4>
-                <p>Nuestra misión es ofrecer el mejor servicio para ampliar nuestra experiencia en el mercado.</p>
-              </div>
+        <!-- Feature Cards -->
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="assets/nosotros/mexicana.webp" alt="Empresa 100% Mexicana" class="feature-img" />
             </div>
+            <h4>Empresa 100% Mexicana</h4>
+            <p>Orgullosamente constituidos en la CDMX, dedicados a fortalecer el mercado nacional.</p>
           </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="assets/nosotros/alcance integral.webp" alt="Alcance Integral" class="feature-img" />
+            </div>
+            <h4>Alcance Integral</h4>
+            <p>Expertos en compraventa, importación, exportación y logística de bienes y servicios.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="assets/nosotros/diversidad de industrias.webp" alt="Diversidad de Industrias" class="feature-img" />
+            </div>
+            <h4>Diversidad de Industrias</h4>
+            <p>Soluciones especializadas en los sectores textil, calzado, oficina, papelería y tecnología.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="assets/nosotros/atencion personalisada.webp" alt="Atención Personalizada" class="feature-img" />
+            </div>
+            <h4>Atención Personalizada</h4>
+            <p>Nuestra misión es ofrecer el mejor servicio para ampliar nuestra experiencia en el mercado.</p>
+          </div>
+        </div>
 
-          <div class="cta-section">
-            <h2>¿Listo para trabajar juntos?</h2>
-            <p>Contacta con nosotros y descubre cómo podemos ayudarte</p>
-            <a routerLink="/contacto" class="btn btn-primary btn-lg">Contáctanos →</a>
-          </div>
+        <div class="cta-section">
+          <h2>¿Listo para trabajar juntos?</h2>
+          <p>Contacta con nosotros y descubre cómo podemos ayudarte</p>
+          <a routerLink="/contacto" class="btn btn-primary btn-lg">Contáctanos →</a>
         </div>
       </div>
     </section>
@@ -78,52 +89,103 @@ import { CompanyInfo } from '../../models';
       min-height: 100vh;
     }
 
-    .page-header {
-      text-align: center;
-      margin-bottom: 4rem;
+    /* Hero Photo */
+    .hero-photo {
+      width: 100%;
+      max-width: 700px;
+      max-height: 350px;
+      margin: 0 auto 3rem;
+      overflow: hidden;
+      border-radius: var(--border-radius-lg);
     }
 
-    .page-title {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 900;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .page-description {
-      font-size: var(--font-size-lg);
-      color: var(--color-text-secondary);
-    }
-
-    .about-section {
+    /* Nuestra Empresa */
+    .empresa-section {
       text-align: center;
       max-width: 800px;
       margin: 0 auto 4rem;
-      padding: 3rem;
+    }
+
+    .empresa-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 900;
+      color: var(--color-text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .empresa-desc {
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+    }
+
+    /* Feature Cards 2x2 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .feature-card {
+      padding: 2.5rem 2rem;
       background: var(--color-bg-card);
       border-radius: var(--border-radius-lg);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      transition: all var(--transition-base);
     }
 
-    .section-icon {
-      font-size: 4rem;
-      margin-bottom: 1.5rem;
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-primary);
+      box-shadow: 0 15px 30px rgba(19, 61, 101, 0.15);
     }
 
-    .about-section h2 {
-      font-size: var(--font-size-3xl);
-      margin-bottom: 1.5rem;
+    .feature-icon {
+      margin-bottom: 1.25rem;
     }
 
-    .about-section p {
+    .feature-img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      transition: transform var(--transition-base);
+    }
+
+    .feature-card:hover .feature-img {
+      transform: scale(1.08);
+    }
+
+    .feature-card h4 {
       font-size: var(--font-size-lg);
-      color: var(--color-text-secondary);
-      line-height: 1.8;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.75rem;
     }
 
+    .feature-card p {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      font-size: var(--font-size-sm);
+    }
+
+    /* Misión y Visión */
     .values-grid {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -153,8 +215,15 @@ import { CompanyInfo } from '../../models';
     }
 
     .value-icon {
-      font-size: 3rem;
       margin-bottom: 1.5rem;
+    }
+
+    .value-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--color-primary);
     }
 
     .value-card h3 {
@@ -166,57 +235,6 @@ import { CompanyInfo } from '../../models';
     .value-card p {
       color: var(--color-text-secondary);
       line-height: 1.7;
-    }
-
-    .features-section {
-      margin-bottom: 4rem;
-    }
-
-    .features-section h2 {
-      text-align: center;
-      font-size: var(--font-size-3xl);
-      margin-bottom: 3rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 2rem;
-    }
-
-    @media (min-width: 768px) {
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .feature-card {
-      padding: 2rem;
-      background: var(--color-bg-card);
-      border-radius: var(--border-radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all var(--transition-base);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--color-secondary);
-    }
-
-    .feature-icon {
-      font-size: 2rem;
-      color: var(--color-primary);
-      margin-bottom: 1rem;
-    }
-
-    .feature-card h4 {
-      font-size: var(--font-size-xl);
-      margin-bottom: 0.75rem;
-    }
-
-    .feature-card p {
-      color: var(--color-text-secondary);
-      line-height: 1.6;
     }
 
     .cta-section {
@@ -243,9 +261,16 @@ import { CompanyInfo } from '../../models';
 export class AboutComponent implements OnInit {
   companyInfo: CompanyInfo | null = null;
 
-  constructor(private companyService: CompanyService) {}
+  constructor(private companyService: CompanyService, private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateSeo({
+      title: 'Nosotros',
+      description: 'Conoce a Zavalpa Comercializadora, empresa 100% mexicana dedicada a la compraventa, importación, exportación y logística de bienes y servicios.',
+      keywords: 'zavalpa, nosotros, empresa mexicana, misión, visión, comercio exterior, CDMX',
+      canonicalUrl: '/nosotros'
+    });
+
     this.companyService.getCompanyInfo().subscribe(info => {
       this.companyInfo = info;
     });

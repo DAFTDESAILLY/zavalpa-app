@@ -23,13 +23,12 @@
     <div class="products-grid">
       @for (product of filteredProducts; track product.id) {
       <div class="product-card">
-        <div class="product-header">
-          <h3 class="product-name">{{ product.name }}</h3>
-          <span class="product-category">{{ getCategoryName(product.category) }}</span>
-        </div>
+        <h3 class="product-name">{{ product.name }}</h3>
+        <span class="product-category-badge">{{ getCategoryName(product.category) }}</span>
 
         <p class="product-description">{{ product.description }}</p>
 
+        @if (product.specifications.length > 0) {
         <div class="specifications">
           <h4 class="specifications-title">Especificaciones:</h4>
           <ul class="specifications-list">
@@ -41,6 +40,7 @@
             }
           </ul>
         </div>
+        }
 
         <a [routerLink]="getProductLink(product)" class="product-btn">
           Ver Detalles

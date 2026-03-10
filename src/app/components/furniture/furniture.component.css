@@ -50,39 +50,178 @@
     }
 }
 
-.furniture-card {
+/* UNIFIED CARD */
+.product-card {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border-light);
     border-radius: var(--border-radius-lg);
-    padding: 2rem;
+    overflow: hidden;
     transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.product-image-container {
+    width: calc(100% - 2rem);
+    max-width: 250px;
+    height: 180px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-border-light);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    background: rgba(19, 61, 101, 0.03);
+    transition: all var(--transition-base);
+}
+
+.product-card:hover .product-image-container {
+    border-color: var(--color-primary);
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.5rem;
+    transition: transform var(--transition-base);
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-body {
+    padding: 1.25rem 1.5rem 1.5rem;
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    flex-grow: 1;
 }
 
-.furniture-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-md);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.card-title {
+.product-title {
     font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: var(--color-primary);
+    font-weight: 800;
+    color: var(--color-text-primary);
     margin-bottom: 0.5rem;
 }
 
-.card-desc {
+.product-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.rating-sep {
+    color: var(--color-text-muted);
+}
+
+.rating-count {
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.product-desc {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: var(--font-size-sm);
+}
+
+.product-features-box {
+    text-align: left;
+    background: var(--color-bg-light);
+    padding: 1rem 1.25rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-light);
+    margin-bottom: 1.25rem;
+}
+
+.features-title {
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
+}
+
+.check-icon {
+    color: var(--color-primary);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.product-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.btn-ver-detalles {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    transition: color var(--transition-base);
+}
+
+.btn-ver-detalles:hover {
+    color: var(--color-primary);
+}
+
+.btn-cotizar {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: white;
+    background: var(--color-primary);
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.btn-cotizar:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(19, 61, 101, 0.3);
 }
 
 .cta-section {

@@ -20,7 +20,7 @@ export interface Product {
 export class ProductService {
 
     private products: Product[] = [
-        // BAGS
+        // BOLSAS Y CARTERAS
         {
             id: 'coleccion-bolsas-mano',
             slug: 'coleccion-bolsas-mano',
@@ -28,62 +28,58 @@ export class ProductService {
             description: 'Elegantes bolsas de mano disponibles en una variedad de colores metálicos y mate. Diseño moderno con amplio espacio y correa ajustable.',
             category: 'Bolsas y Carteras',
             features: ['Colores: Rosa, Dorado, Café, Gris, Negro', 'Acabados metálicos y mate', 'Diseño estructurado'],
-            images: ['assets/products/BOLSA-ROSA.png'], // Placeholder
+            images: ['assets/products/bolsa/bolsas-mano.webp'],
             icon: '👜'
         },
         {
-            id: 'cartera-14-negro',
-            slug: 'cartera-14-negro',
-            name: 'Cartera 14 Negro',
+            id: 'cartera-negro',
+            slug: 'cartera-negro',
+            name: 'Cartera Negro',
             description: 'Cartera elegante en color negro con hebilla frontal distintiva. Ideal para ocasiones formales.',
             category: 'Bolsas y Carteras',
             features: ['Color: Negro', 'Hebilla decorativa', 'Textura suave'],
-            dimensions: '19x25.5cm',
-            images: ['assets/products/BOLSA-NEGRO.png'],
+            images: ['assets/products/bolsa/cartera-negra.webp'],
             icon: '👛'
         },
         {
-            id: 'cartera-14-beige',
-            slug: 'cartera-14-beige',
-            name: 'Cartera 14 Beige',
+            id: 'cartera-beige',
+            slug: 'cartera-beige',
+            name: 'Cartera Beige',
             description: 'Cartera versátil en tono beige, perfecta para combinar con cualquier atuendo.',
             category: 'Bolsas y Carteras',
             features: ['Color: Beige', 'Diseño clásico', 'Fácil de combinar'],
-            dimensions: '19x25.5cm',
-            images: ['assets/products/BOLSA-HUESO.png'],
+            images: ['assets/products/bolsa/cartera-beige.webp'],
             icon: '👛'
         },
         {
-            id: 'cartera-13-rojo',
-            slug: 'cartera-13-rojo',
-            name: 'Cartera 13 Rojo',
+            id: 'cartera-rojo',
+            slug: 'cartera-rojo',
+            name: 'Cartera Rojo',
             description: 'Cartera vibrante en color rojo con textura capitonada para un look audaz.',
             category: 'Bolsas y Carteras',
             features: ['Color: Rojo', 'Textura capitonada', 'Cierre seguro'],
-            dimensions: '19x25.5cm',
-            images: ['assets/products/BOLSA-ROJA.png'],
+            images: ['assets/products/bolsa/cartera-rojo.webp'],
             icon: '👛'
         },
         {
-            id: 'cartera-13-lila',
-            slug: 'cartera-13-lila',
-            name: 'Cartera 13 Lila',
+            id: 'cartera-lila',
+            slug: 'cartera-lila',
+            name: 'Cartera Lila',
             description: 'Cartera delicada en color lila, aportando un toque de color suave y femenino.',
             category: 'Bolsas y Carteras',
             features: ['Color: Lila', 'Diseño moderno', 'Ligera y práctica'],
-            dimensions: '19x25.5cm',
-            images: ['assets/products/BOLSA-LILA.PNG'], // Note: check extension case if needed
+            images: ['assets/products/bolsa/cartera-lila-1.webp'],
             icon: '👛'
         },
 
-        // STATIONERY
+        // PAPELERÍA
         {
             id: 'articulos-escritura',
             slug: 'articulos-escritura',
             name: 'Artículos de Escritura',
             description: 'Lápices, bolígrafos y artículos de escritura de alta calidad para oficina y escolar.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/articulos-de-escritura.webp'],
             icon: '✏️'
         },
         {
@@ -92,7 +88,7 @@ export class ProductService {
             name: 'Lápices y Pinturas',
             description: 'Lápices con mina de grafito, lápices de colores y pinturas para uso artístico y técnico.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/lapices-y-pinturas.webp'],
             icon: '🎨'
         },
         {
@@ -101,7 +97,7 @@ export class ProductService {
             name: 'Papel e Impresos',
             description: 'Papel bond, tarjetas, blocs, libros e impresos diversos.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/pape-e-impresos.webp'],
             icon: '📄'
         },
         {
@@ -110,7 +106,7 @@ export class ProductService {
             name: 'Sobres y Bolsas',
             description: 'Variedad de sobres y bolsas para correspondencia y empaque.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/sobres-y-bolsas.webp'],
             icon: '✉️'
         },
         {
@@ -119,7 +115,7 @@ export class ProductService {
             name: 'Correo y Embalaje',
             description: 'Material especializado para correo y embalaje seguro.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/correo-y-embalaje.webp'],
             icon: '📦'
         },
         {
@@ -128,7 +124,7 @@ export class ProductService {
             name: 'Carpetas e Informes',
             description: 'Carpetas, cubiertas de informes e índices para organización profesional.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/carpetas-e-informes.webp'],
             icon: '📂'
         },
         {
@@ -137,7 +133,7 @@ export class ProductService {
             name: 'Archivadores',
             description: 'Sistemas de archivo y carpetas para gestión documental.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/Archivadores.webp'],
             icon: '🗄️'
         },
         {
@@ -146,7 +142,7 @@ export class ProductService {
             name: 'Adhesivos',
             description: 'Pegamentos, colas y cintas adhesivas de uso general e industrial.',
             category: 'Papelería',
-            images: [],
+            images: ['assets/products/papeleria/Adhesivos.webp'],
             icon: '📎'
         },
 
@@ -174,61 +170,128 @@ export class ProductService {
             icon: '🛋️'
         },
 
-        // FRAMES
+        // ARMAZONES
         {
-            id: 'armazon-abf01',
-            slug: 'armazon-abf01',
-            name: 'Armazón ABF01',
+            id: 'armazon-optico',
+            slug: 'armazon-optico',
+            name: 'Armazón Óptico',
             description: 'Armazón óptico de diseño clásico con acabados premium.',
             category: 'Armazones',
             subcategory: 'Óptico',
-            images: [],
+            images: ['assets/products/armazones/armazon-optico.webp'],
             icon: '👓'
         },
         {
-            id: 'armazon-auf01',
-            slug: 'armazon-auf01',
-            name: 'Lentes de Sol AUF01',
+            id: 'lentes-de-sol',
+            slug: 'lentes-de-sol',
+            name: 'Lentes de Sol',
             description: 'Lentes de sol con protección UV y diseño moderno.',
             category: 'Armazones',
             subcategory: 'Solar',
-            images: [],
+            images: ['assets/products/armazones/lentes-de-sol.webp'],
             icon: '🕶️'
         },
         {
-            id: 'armazon-aun01',
-            slug: 'armazon-aun01',
-            name: 'Armazón AUN01',
+            id: 'armazon-ligero',
+            slug: 'armazon-ligero',
+            name: 'Armazón Ligero',
             description: 'Armazón ligero y resistente para uso diario.',
             category: 'Armazones',
             subcategory: 'Óptico',
-            images: [],
+            images: ['assets/products/armazones/armazon-ligero.webp'],
             icon: '👓'
         },
         {
-            id: 'armazon-mtv01',
-            slug: 'armazon-mtv01',
-            name: 'Lentes Deportivos MTV-01',
+            id: 'lentes-deportivos',
+            slug: 'lentes-deportivos',
+            name: 'Lentes Deportivos',
             description: 'Diseño deportivo ergonómico para máxima comodidad.',
             category: 'Armazones',
             subcategory: 'Deportivo',
-            images: [],
+            images: ['assets/products/armazones/deportivo.webp'],
             icon: '😎'
+        },
+
+        // HOGAR
+        {
+            id: 'encendedores',
+            slug: 'encendedores',
+            name: 'Encendedores',
+            description: 'Encendedores de alta calidad para uso doméstico.',
+            category: 'Hogar',
+            images: ['assets/products/hogar/encendedor.webp'],
+            icon: '🔥'
+        },
+        {
+            id: 'encendedores-coleccion',
+            slug: 'encendedores-coleccion',
+            name: 'Colección Encendedores',
+            description: 'Variedad de encendedores con diseños exclusivos y acabados premium.',
+            category: 'Hogar',
+            images: ['assets/products/hogar/encendedor-1.webp'],
+            icon: '🔥'
+        },
+        {
+            id: 'pilas',
+            slug: 'pilas',
+            name: 'Pilas',
+            description: 'Pilas de larga duración para todos tus dispositivos electrónicos.',
+            category: 'Hogar',
+            images: ['assets/products/hogar/pila.webp'],
+            icon: '🔋'
+        },
+
+        // SALUD E HIGIENE
+        {
+            id: 'cortaunas',
+            slug: 'cortaunas',
+            name: 'Cortaúñas',
+            description: 'Cortaúñas de acero inoxidable de alta precisión para el cuidado personal.',
+            category: 'Salud e Higiene',
+            images: ['assets/products/salud/cortauñas.webp'],
+            icon: '💅'
+        },
+        {
+            id: 'cotonetes',
+            slug: 'cotonetes',
+            name: 'Cotonetes',
+            description: 'Cotonetes de algodón suave para higiene personal y uso médico.',
+            category: 'Salud e Higiene',
+            images: ['assets/products/salud/cotonetes.webp'],
+            icon: '🏥'
+        },
+        {
+            id: 'pasadores',
+            slug: 'pasadores',
+            name: 'Pasadores',
+            description: 'Pasadores y accesorios para el cabello de uso diario.',
+            category: 'Salud e Higiene',
+            images: ['assets/products/salud/pasadores.webp'],
+            icon: '💇'
         }
     ];
 
-    // Furniture items generated dynamically or hardcoded
+    // Furniture items with real images
     private furnitureItems: Product[] = [
-        'Escritorios', 'Sillas', 'Lockers', 'Archiveros',
-        'Cajas Fuerte', 'Bancos móviles', 'Módulos', 'Gabinetes',
-        'Sala de recepción', 'Libreros', 'Ficheros', 'Mesas de junta'
-    ].map(name => ({
-        id: name.toLowerCase().replace(/ /g, '-'),
-        slug: name.toLowerCase().replace(/ /g, '-'),
-        name: name,
-        description: `Mobiliario de oficina de alta calidad: ${name}. Diseño ergonómico y duradero.`,
+        { name: 'Escritorios', image: 'assets/products/muebles/Escritorios.webp' },
+        { name: 'Sillas', image: 'assets/products/muebles/Sillas.webp' },
+        { name: 'Lockers', image: 'assets/products/muebles/Lockers.webp' },
+        { name: 'Archiveros', image: 'assets/products/muebles/Archiveros.webp' },
+        { name: 'Cajas Fuerte', image: 'assets/products/muebles/Cajas Fuerte.webp' },
+        { name: 'Bancos Móviles', image: 'assets/products/muebles/Bancos móviles.webp' },
+        { name: 'Módulos', image: 'assets/products/muebles/modulos.webp' },
+        { name: 'Gabinetes', image: 'assets/products/muebles/Gabinetes.webp' },
+        { name: 'Sala de Recepción', image: 'assets/products/muebles/Sala de recepción.webp' },
+        { name: 'Libreros', image: 'assets/products/muebles/libreros.webp' },
+        { name: 'Ficheros', image: 'assets/products/muebles/Ficheros.webp' },
+        { name: 'Mesas de Junta', image: 'assets/products/muebles/Mesas de junta.webp' }
+    ].map(item => ({
+        id: item.name.toLowerCase().replace(/ /g, '-'),
+        slug: item.name.toLowerCase().replace(/ /g, '-'),
+        name: item.name,
+        description: `Mobiliario de oficina de alta calidad: ${item.name}. Diseño ergonómico y duradero.`,
         category: 'Muebles de Oficina',
-        images: [],
+        images: [item.image],
         icon: '🪑'
     }));
 

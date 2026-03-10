@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Service } from '../../models';
 import { ServicesService } from '../../services/services.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-services',
@@ -23,9 +24,15 @@ export class ServicesComponent implements OnInit {
     { id: 'servicios-tecnicos', name: 'Servicios Técnicos', icon: '🔧' }
   ];
 
-  constructor(private servicesService: ServicesService) { }
+  constructor(private servicesService: ServicesService, private seo: SeoService) { }
 
   ngOnInit() {
+    this.seo.updateSeo({
+      title: 'Servicios',
+      description: 'Servicios de comercio exterior, logística internacional, consultoría y servicios técnicos. Soluciones integrales para tu negocio.',
+      keywords: 'servicios, comercio exterior, logística internacional, consultoría, importación, exportación, zavalpa',
+      canonicalUrl: '/servicios'
+    });
     this.loadServices();
   }
 

@@ -10,23 +10,56 @@
         </div>
 
         <div class="frames-grid">
-            @for (frame of frames; track frame.model) {
-            <div class="frame-card">
-                <div class="card-icon">{{ frame.image }}</div>
-                <h3 class="frame-model">{{ frame.model }}</h3>
-                <span class="frame-type">{{ frame.type }}</span>
-                <p class="frame-desc">{{ frame.description }}</p>
-                <div class="d-flex gap-2 mt-3 w-100 justify-content-center">
-                    <a [routerLink]="['/producto', frame.slug]" class="btn btn-outline-primary btn-sm flex-fill">Ver
-                        Detalles</a>
-                    <a [routerLink]="['/contacto']" [queryParams]="{product: frame.model + ' (' + frame.type + ')'}"
-                        class="btn btn-primary btn-sm flex-fill">Ver Disponibilidad</a>
+            @for (frame of frames; track frame.id) {
+            <div class="product-card">
+                <div class="product-image-container">
+                    @if (frame.images && frame.images.length > 0) {
+                    <img [src]="frame.images[0]" [alt]="frame.name" class="product-img">
+                    }
+                </div>
+
+                <div class="product-body">
+                    <h3 class="product-title">{{ frame.name }}</h3>
+
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-sep">·</span>
+                        <span class="rating-count">1,419</span>
+                    </div>
+
+                    <p class="product-desc">{{ frame.description }}</p>
+
+                    @if (frame.subcategory) {
+                    <div class="product-features-box">
+                        <h4 class="features-title">CARACTERÍSTICAS:</h4>
+                        <ul class="features-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>· Tipo: {{ frame.subcategory }}</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>· Alta calidad y durabilidad</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>· Diseño premium</span>
+                            </li>
+                        </ul>
+                    </div>
+                    }
+
+                    <div class="product-buttons">
+                        <a [routerLink]="['/producto', frame.slug]" class="btn-ver-detalles">Ver Detalles</a>
+                        <a [routerLink]="['/contacto']" [queryParams]="{product: frame.name}"
+                            class="btn-cotizar">Cotizar</a>
+                    </div>
                 </div>
             </div>
             }
         </div>
 
-        <div class="cta-section mt-5">
+        <div class="cta-section">
             <h2>Encuentra tu estilo perfecto</h2>
             <p>Contamos con una amplia variedad de marcas y diseños.</p>
             <a routerLink="/contacto" class="btn btn-primary btn-lg">Contactar Distribuidor</a>
